@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.domain.Sort.Order;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +22,7 @@ public class Application {
 
         @GetMapping("/hello")
         public List<GreetingEntity> helloWorld() {
-            return this.greetingRepository.findAll(new Sort(new Order(Direction.ASC, "value")));
+            return this.greetingRepository.findAll(Sort.by(Direction.ASC, "value"));
         }
     }
 
